@@ -115,3 +115,20 @@ func (list *LinkedList[T]) Join(separator string) string {
 
 	return result
 }
+
+func (list *LinkedList[T]) Reverse() {
+	var current *LinkedListNode[T] = list.head
+	var prev *LinkedListNode[T]
+	var next *LinkedListNode[T]
+
+	for current != nil {
+		next = current.next
+		current.next = prev
+
+		prev = current
+		current = next
+	}
+
+	list.tail = list.head
+	list.head = prev
+}

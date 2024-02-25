@@ -315,3 +315,29 @@ func TestJoinListWithSingleValue(t *testing.T) {
 		t.Errorf("result = %s, expected 1", r)
 	}
 }
+
+func TestReverseList(t *testing.T) {
+	list := NewList[int]()
+
+	list.Append(1)
+	list.Append(2)
+	list.Append(3)
+	list.Append(4)
+	list.Append(5)
+
+	list.Reverse()
+
+	r := list.Join(" ")
+
+	if r != "5 4 3 2 1" {
+		t.Errorf("result = %s, expected 5 4 3 2 1", r)
+	}
+
+	if list.head.value != 5 {
+		t.Errorf("list.head.value = %d, 5", list.head.value)
+	}
+
+	if list.tail.value != 1 {
+		t.Errorf("list.tail.value = %d, 1", list.tail.value)
+	}
+}
