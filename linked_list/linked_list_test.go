@@ -20,6 +20,30 @@ func TestCreateEmptyList(t *testing.T) {
 	}
 }
 
+func TestGetFirstValueFromList(t *testing.T) {
+	list := NewList[int]()
+
+	list.Append(1)
+	list.Append(2)
+	list.Append(3)
+
+	v, found := list.GetFirst()
+
+	if v != 1 || found != true {
+		t.Errorf("invalid value returned from list; expected = 1; received %d", v)
+	}
+}
+
+func TestGetFirstValueFromEmptyList(t *testing.T) {
+	list := NewList[int]()
+
+	_, found := list.GetFirst()
+
+	if found != false {
+		t.Errorf("expected = false; received true")
+	}
+}
+
 func TestAppendToEmptyList(t *testing.T) {
 	list := NewList[int]()
 

@@ -12,6 +12,21 @@ func NewList[T any]() *LinkedList[T] {
 	return &LinkedList[T]{}
 }
 
+func (list *LinkedList[T]) GetFirst() (T, bool) {
+	if list.head == nil {
+		return *new(T), false
+	}
+
+	return list.head.value, true
+}
+
+func (list *LinkedList[T]) DeleteFirst() {
+	if list.head != nil {
+		list.head = list.head.next
+		list.Length--
+	}
+}
+
 func (list *LinkedList[T]) Append(v T) {
 	node := &LinkedListNode[T]{
 		value: v,
