@@ -1,4 +1,4 @@
-package linked_list
+package doubly_linked_list
 
 import (
 	"testing"
@@ -77,6 +77,15 @@ func TestAppendToList(t *testing.T) {
 		t.Errorf("list.head = %d; expected 1", list.head.value)
 	}
 
+	secondNode := list.head.next
+	if secondNode.prev != list.head {
+		t.Errorf("second node prev pointer not pointing to head")
+	}
+
+	if secondNode.next != list.tail {
+		t.Errorf("second node next pointer not pointing to tail")
+	}
+
 	if list.tail.value != 3 {
 		t.Errorf("list.tail = %d; expected 3", list.tail.value)
 	}
@@ -113,6 +122,14 @@ func TestPrependToList(t *testing.T) {
 
 	if list.head.value != 1 {
 		t.Errorf("list.head = %d; expected 1", list.head.value)
+	}
+
+	if list.head.prev != nil {
+		t.Errorf("expected list.head.prev to be nil")
+	}
+
+	if list.head.next.value != 2 {
+		t.Errorf("list.head.next.value = %d; expected 1", list.head.value)
 	}
 
 	if list.tail.value != 3 {
@@ -183,6 +200,10 @@ func TestDeleteHead(t *testing.T) {
 
 	if list.head.value != 2 {
 		t.Errorf("list.head.value = %d, expected = 2", list.head.value)
+	}
+
+	if list.head.prev != nil {
+		t.Errorf("list.head.prev is not nil")
 	}
 
 	if list.Length != 2 {

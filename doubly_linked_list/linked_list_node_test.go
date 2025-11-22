@@ -1,8 +1,6 @@
-package linked_list
+package doubly_linked_list
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestCreateNodeWithValue(t *testing.T) {
 	node := LinkedListNode[int]{

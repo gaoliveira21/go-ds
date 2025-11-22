@@ -1,14 +1,14 @@
 package queue
 
-import "github.com/gaoliveira21/go-ds/linked_list"
+import "github.com/gaoliveira21/go-ds/singly_linked_list"
 
 type Queue[T any] struct {
-	list *linked_list.LinkedList[T]
+	list *singly_linked_list.LinkedList[T]
 }
 
 func NewQueue[T any]() *Queue[T] {
 	return &Queue[T]{
-		list: linked_list.NewList[T](),
+		list: singly_linked_list.NewList[T](),
 	}
 }
 
