@@ -2,12 +2,6 @@
 
 A collection of data structures implemented in Go.
 
-## Project Structure
-- `array/` - Dynamic array implementation and tests
-- `doubly_linked_list/` - Doubly linked list and node implementations with tests
-- `queue/` - Queue implementation and tests
-- `singly_linked_list/` - Singly linked list and node implementations with tests
-
 ## Getting Started
 Clone the repository:
 ```sh
@@ -39,3 +33,5 @@ Doubly linked list with forward and backward traversal.
 ### Queue
 FIFO queue implementation.
 
+### Stack
+LIFO stack implementation.
